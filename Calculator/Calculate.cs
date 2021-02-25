@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Calculator
+﻿namespace Calculator
 {
     class Calculate
     {
@@ -20,6 +14,21 @@ namespace Calculator
                 }
             }
             return sum;
+        }
+
+        public int CalculateMultiplication(int[] numbers)
+        {
+            int multiplication = 0;
+            if (numbers != null)
+            {
+                multiplication = 1;
+
+                for (int i = 0; i < numbers.Length; i++)
+                {
+                    multiplication *= numbers[i];
+                }
+            }
+            return multiplication;
         }
     }
 }

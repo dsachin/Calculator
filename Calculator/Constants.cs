@@ -14,6 +14,6 @@ namespace Calculator
 
     enum Operations
     {
-        add
+        add, multiply
     }
 }

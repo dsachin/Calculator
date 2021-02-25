@@ -23,11 +23,14 @@ namespace Calculator
                 {
                     int result = 0;
                     int[] numbers = args.Length > 1 ? Helper.ValidateAndGetInputAsIntegers(args[1]) : null;
-
+                    Calculate calculate = new Calculate();
                     if (args != null && args[0] == Operations.add.ToString())
                     {
-                        Calculate calculate = new Calculate();
                         result = calculate.CalculateSum(numbers);
+                    }
+                    else if (args != null && args[0] == Operations.multiply.ToString())
+                    {
+                        result = calculate.CalculateMultiplication(numbers);
                     }
                     else
                     {
