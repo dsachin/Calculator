@@ -17,7 +17,7 @@ namespace Calculator
                 inputValues = inputValues.Substring(lastIndexOfFormatter);
             }
             int[] inputNumbers = inputValues.Split(delimiter)
-                                 .Select(n => Convert.ToInt32(n)).ToArray();
+                                 .Select(n => Convert.ToInt32(n)).Where(n => n <= 1000).ToArray();
 
             int[] negativeNumbers = inputNumbers.Where(i => i < 0).ToArray();
 
