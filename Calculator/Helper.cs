@@ -18,6 +18,13 @@ namespace Calculator
             }
             int[] inputNumbers = inputValues.Split(delimiter)
                                  .Select(n => Convert.ToInt32(n)).ToArray();
+
+            bool isNegativeNumberPresent = inputNumbers.Any(x => x < 0);
+
+            if (isNegativeNumberPresent)
+            {
+                throw new Exception("Error: Negative numbers not allowed.");
+            }
             return inputNumbers;
         }
 
