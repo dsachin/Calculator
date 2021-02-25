@@ -40,7 +40,7 @@ namespace Calculator
                         }
                         else
                         {
-                            throw new Exception("Invalid arguments.");
+                            result = calculate.CalculateSum(numbers);
                         }
                     }
                     else
