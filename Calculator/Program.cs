@@ -16,32 +16,18 @@ namespace Calculator
                 //args = new string[2];
                 //args[0] = Operations.add.ToString();
                 //args[1] = "1,2";
+                //args[1] = "1,2\n4,5";
 
 
                 if (args.Length >= 1)
                 {
                     int result = 0;
-                    int[] numbers = args.Length > 1?args[1].Split(',').Select(n => Convert.ToInt32(n)).ToArray():null;
+                    int[] numbers = args.Length > 1 ? Helper.ValidateAndGetInputAsIntegers(args[1]) : null;
 
                     if (args != null && args[0] == Operations.add.ToString())
                     {
                         Calculate calculate = new Calculate();
-                        if (numbers==null)
-                        {
-                            result = calculate.CalculateSum();
-                        }
-                        else if (numbers.Length == 1)
-                        {
-                            result = calculate.CalculateSum(numbers[0]);
-                        }
-                        else if (numbers.Length == 2)
-                        {
-                            result = calculate.CalculateSum(numbers[0], numbers[1]);
-                        }
-                        else
-                        {
-                            result = calculate.CalculateSum(numbers);
-                        }
+                        result = calculate.CalculateSum(numbers);
                     }
                     else
                     {
@@ -51,7 +37,7 @@ namespace Calculator
                 }
                 else
                 {
-                    throw new InvalidOperationException("Invalid Operation");
+                    throw new InvalidOperationException("Invalid Arguments");
                 }
             }
             catch (Exception ex)
