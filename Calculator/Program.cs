@@ -17,7 +17,7 @@ namespace Calculator
                 //args[0] = Operations.add.ToString();
                 //args[1] = "1,2";
                 //args[1] = "1,2\n4,5";
-
+                //args[1] = "\\;\\1;2\n3;4;5;6";
 
                 if (args.Length >= 1)
                 {
