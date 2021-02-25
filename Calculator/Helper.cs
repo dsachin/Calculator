@@ -19,11 +19,12 @@ namespace Calculator
             int[] inputNumbers = inputValues.Split(delimiter)
                                  .Select(n => Convert.ToInt32(n)).ToArray();
 
-            bool isNegativeNumberPresent = inputNumbers.Any(x => x < 0);
+            int[] negativeNumbers = inputNumbers.Where(i => i < 0).ToArray();
 
-            if (isNegativeNumberPresent)
+            if (negativeNumbers.Length > 0)
             {
-                throw new Exception("Error: Negative numbers not allowed.");
+                string invalidValues = string.Join(", ", negativeNumbers);
+                throw new Exception(string.Format("Error: Negative numbers ({0}) not allowed.", invalidValues));
             }
             return inputNumbers;
         }
